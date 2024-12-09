@@ -315,9 +315,10 @@ class BinanceDataDumper:
                 timeperiod_per_file=timeperiod_per_file,
                 extension="csv",
             )
-            path_where_to_save = os.path.join(
-                str_dir_where_to_save, file_name)
-            if os.path.exists(path_where_to_save):
+            path_where_to_save = os.path.join(str_dir_where_to_save, file_name)
+            if os.path.exists(path_where_to_save) and path_where_to_save.endswith(
+                ".csv.gz"
+            ):
                 list_dates_with_data.append(date_obj)
 
         return list_dates_with_data
